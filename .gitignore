@@ -1,0 +1,6 @@
+bin/
+obj/
+appsettings.json
+.DS_Store
+.vscode/
+Whiteboard
