@@ -11,6 +11,7 @@ namespace MessageBoard.Models
     [Required]
     public string Text { get; set; }
     [Required]
+    [StringLength(20)]
     public string Author { get; set; }
     
     //public int ThreadId {get;set} <-- we would need this if we were doing doing a one to many relationships.
