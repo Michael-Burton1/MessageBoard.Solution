@@ -22,7 +22,7 @@ namespace MessageBoard.Controllers
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Message>>> Get(string text, string subject, string author, DateTime date)
+    public async Task<ActionResult<IEnumerable<Message>>> Get(string text, string subject, string author)
     {
     var query = _db.Messages.AsQueryable();
 
@@ -41,10 +41,6 @@ namespace MessageBoard.Controllers
     query = query.Where(entry => entry.Author == author);
     }
 
-    if (date != null)
-    {
-    query = query.Where(entry => entry.Date == date);
-    }
 
     return await query.ToListAsync();
     }
