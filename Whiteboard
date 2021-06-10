@@ -1,0 +1,12 @@
+properties for messages
+1.Id
+2.Text
+3.Author
+4.Date
+5.
+
+
+Properties of Threads
+ThreadId
+Title
+ICollection<message> Messages

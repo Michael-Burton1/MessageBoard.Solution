@@ -22,13 +22,18 @@ namespace MessageBoard.Controllers
     }
 
     [HttpGet]
-    public ActionResult<IEnumerable<Message>> Get(string text, string author, DateTime date)
+    public async Task<ActionResult<IEnumerable<Message>>> Get(string text, string subject, string author, DateTime date)
     {
     var query = _db.Messages.AsQueryable();
 
     if (text != null)
     {
     query = query.Where(entry => entry.Text == text);
+    }
+
+    if (subject != null)
+    {
+    query = query.Where(entry => entry.Subject == subject);
     }
 
     if (author != null)
@@ -41,7 +46,7 @@ namespace MessageBoard.Controllers
     query = query.Where(entry => entry.Date == date);
     }
 
-    return query.ToList();
+    return await query.ToListAsync();
     }
     // POST api/animals
     [HttpPost]

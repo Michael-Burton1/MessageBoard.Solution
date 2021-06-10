@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System;
+// using System.Boolean;
 
 namespace MessageBoard.Models
 {
